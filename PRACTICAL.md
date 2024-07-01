@@ -206,6 +206,7 @@ First, we have to save our python code into a file. For this create a file with 
 ```
 import os
 node = os.getenv("SLURMD_NODENAME")
+jobid = os.getenv("SLURM_JOBID")
 myfile = open("demofile-" + jobid + ".txt", "w")
 myfile.write("I am doing compute work on " + node)
 exit()
