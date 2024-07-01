@@ -101,7 +101,7 @@ Currently Loaded Modulefiles:
 No Modulefiles Currently Loaded.
 ```
 
-Keep in mind, no software is loaded by default! Loading software should be part of a routine in your job. Running a job is just like logging on to the system, you should not assume a module loaded on the login node is loaded on a compute node.
+Keep in mind, no software is loaded by default, without configuring it to do so! Loading software should be part of a routine in your job. Running a job is just like logging on to the system, you should not assume a module loaded on the login node is loaded on a compute node.
 
 ## Scheduler
 All the steps from here on are specific to Slurm. There are other schedulers with different syntax, the ideas and functionalities are usually very similar though.
@@ -184,7 +184,7 @@ Look at the file you just created using cat. You can see it used the name of the
 
 ```
 [<yourUsername>@node001 ~]$ cat demofile-<JobID>.txt
-I am doing compute work on <ComputeNodeName>
+I am doing compute work on node001
 ```
 
 This is our interactive job done, lets close our session with the `exit` command. This should bring us back to the login node, as indicated by the prompt again:
@@ -300,7 +300,7 @@ The output is as follows:
 - **NODES**: Number of nodes.
 - **NODELIST**: List of names of allocated nodes.
 
-By now your job should be finished. Use `squeue` to check if your job is still running. By default, jobs, that are not running or pending, will not show in the list.
+By now your job should be finished. Use `squeue` to check if your job is still running. By default, jobs that have finished running, will not show in the list.
 
 Slurm keeps a database with information of all jobs run using the system. To access this data, you can use the `sacct` command. Using the JobID you saved from your job, we can show a wide list of information for your job. Use the `-o` parameter followed by a list of Job-Accounting-Fields.
 
