@@ -46,6 +46,8 @@ sharedscratch -> /tmp/shared-scratch/<yourUsername>
 
 You can move data to the system using SFTP / SSH. A very accessible SFTP client with a GUI is WinSCP.
 
+All our work in this workshop will be done within the home directory, that is also shared across the whole cluster.
+
 ## Software
 As the system uses Environment Modules, the available software on the system can be listed using the `module available` command. You will see a list of all available software on the system. In this workshop we will only be using a few.
 
