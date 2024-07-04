@@ -163,19 +163,15 @@ Here we can start doing computational work. As an example, we will run some pyth
 ```
  >>> node = os.getenv("SLURMD_NODENAME")
 ```
-5.	Get Slurm JobID
+5.	Open a new text file
 ```
- >>> jobid = os.getenv("SLURM_JOBID")
+>>> myfile = open("demofile.txt", "w") 
 ```
-6.	Open a new text file
-```
->>> myfile = open("demofile-" + jobid + ".txt", "w") 
-```
-7.	Write into the text file
+6.	Write into the text file
 ```
  >>> myfile.write("I am doing compute work on " + node)
 ```
-8.	Exit python3
+7.	Exit python3
 ```
  >>> exit()
 ```
@@ -183,7 +179,7 @@ Here we can start doing computational work. As an example, we will run some pyth
 Look at the file you just created using cat. You can see it used the name of the node we are working on in the output.
 
 ```
-[<yourUsername>@node001 ~]$ cat demofile-<JobID>.txt
+[<yourUsername>@node001 ~]$ cat demofile.txt
 I am doing compute work on node001
 ```
 
@@ -198,7 +194,7 @@ exit
 ## Batch job submission
 If you are thinking the previous example was quite tedious and not very convenient, you will like batch job submissions.
 
-First, we have to save our python code into a file. For this create a file with the .py ending and add the contents of step 3- 7in the interactive job. You can create and edit files using either `vi` or `nano`, whatever is more comfortable to you:
+First, we have to save our python code into a file. For this create a file with the .py ending and add the contents of step 3-7 in the interactive job. To make sure the output of our script is uniquie we will add the unique JobID as an identifies to the output of the script. You can create and edit files using either `vi` or `nano`, whatever is more comfortable to you:
 
 ```
 [<yourUsername>@headnode01 ~]$ nano myPythonCode.py
@@ -212,7 +208,7 @@ myfile.write("I am doing compute work on " + node)
 exit()
 ```
 
-Within your workshop material you should find a job script template. Copy the template and edit it:
+Now to schedule our job with Slurm , we need to create a job script. Within your workshop material you should find a job script template. Copy the template and edit it:
 
 ```
 [<yourUsername>@headnode01 ~]$ cp HPC-Workshop-July-2024/jobSubmissionTemplate.sh myPythonJob.sh
@@ -236,10 +232,11 @@ In the “My Code” section run the script you saved earlier by providing it as
 python3 myPythonCode.py
 ```
 
-Now you can submit your job using the `sbatch` utility and the path to the script:
+Now you can submit your job using the `sbatch` utility and the path to the script. You will get a JobID in return, remember this to find your output later:
 
 ```
 [<yourUsername>@headnode01 ~]$ sbatch myPythonJob.sh
+Submitted batch job <JobID>
 ```
 
 Within your current working directory, you should now find an output file named after your JobID and the file your python script created. Since your home storage is shared across all servers, you can see the output of your scripts in real time from the headnode, even if the job ran on a compute node:
@@ -252,7 +249,8 @@ demofile-<JobID>.txt
 
 You can run this job as many times as you want by just using the sbatch command. Like this you have access to the power of the HPC compute nodes, without ever having to log into one yourself.
 
-You can also use the HPC to run parallel jobs. For this you’ll need a program, that I capable to do this. In our example, we are running a simple MPI program, that just reports back where it ran.
+## Parallel Job
+You can also use the HPC to run parallel jobs. For this you’ll need a program, that is capable to do this. In our example, we are running a simple MPI program, that just reports back where it ran.
 
 You can copy the example script form the workshop materials. Have a look at the script and note, that we set it to run over 2 nodes, with 4 tasks each:
 
