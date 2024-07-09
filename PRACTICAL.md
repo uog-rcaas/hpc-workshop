@@ -243,7 +243,7 @@ Now you can submit your job using the `sbatch` utility and the path to the scrip
 Submitted batch job <JobID>
 ```
 
-Within your current working directory, you should now find an output file named after your JobID and the file your python script created. Since your home storage is shared across all servers, you can see the output of your scripts in real time from the headnode, even if the job ran on a compute node:
+Within your current working directory, you should now find an output file named after your JobID, which contains the `STDOUT` and `STDERR` of your job session, and the file your python script created. Since your home storage is shared across all servers, you can see the output of your scripts in real time from the headnode, even if the job ran on a compute node:
 
 ```
 [<yourUsername>@headnode01 ~]$ ls -l
