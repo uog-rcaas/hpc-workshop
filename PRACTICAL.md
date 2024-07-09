@@ -7,6 +7,8 @@ The School of Geography and Earth Sciences allowed us to use this platform for t
 ![System-Overview](img/system-overview.png "System Overview")
 
 ## Connecting
+To connect to the system you have to be connected to eduroam or VPN.
+
 Go ahead and open your terminal, then log in to the cluster. Replace `<yourUsername>` with the username on your credential sheet supplied by the instructors.
 
 ```
