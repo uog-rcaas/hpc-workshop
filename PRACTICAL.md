@@ -263,7 +263,7 @@ You can copy the example script form the workshop materials. Have a look at the 
 [<yourUsername>@headnode01]$ cat myParallelTestJob.sh
 ```
 
-Run the job using `sbatch` and look at the output file. MPI ran the program on each detected task on each node and wrote a message to the console. Slurm collects all these outputs in the slurm-<JobID>.out file:
+Run the job using `sbatch` and look at the output file. MPI ran the program on each detected task on each node and wrote a message to the console. Slurm collects all these outputs in the `slurm-<JobID>.out` file:
 
 ```
 [<yourUsername>@headnode01]$ sbatch myParallelTestJob.sh
@@ -271,6 +271,8 @@ Run the job using `sbatch` and look at the output file. MPI ran the program on e
 ```
 
 ## Job monitoring and resource efficiency
+To show off some monitoring options we will schedule a job that runs over a longer time and simulates compute work.
+
 Copy the monitoring example script from the workshop materials and have a look at it in your console. Every step of the script is described with a comment above:
 
 ```
@@ -278,7 +280,7 @@ Copy the monitoring example script from the workshop materials and have a look a
 [<yourUsername>@headnode01]$ cat myMonitoringTestJob.sh
 ```
 
-The script does not need any adjustments and can be ran as is using `sbatch` to submit it to the scheduler. Upon submission you should get a JobID printed to the console, we will use this for the coming queries, indicated by <JobID>:
+The script does not need any adjustments and can be run as is using `sbatch` to submit it to the scheduler. Upon submission you should get a JobID printed to the console, we will use this for the coming queries, indicated by `<JobID>`:
 
 ```
 [<yourUsername>@headnode01]$ sbatch myMonitoringTestJob.sh
