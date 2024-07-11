@@ -198,9 +198,7 @@ exit
 ## Batch job submission
 If you are thinking the previous example was quite tedious and not very convenient, you will like batch job submissions.
 
-First, we have to save our python code into a file. For this create a file with the .py ending and add the contents of step 3-7 in the interactive job. To make sure the output of our script is uniquie we will add the unique JobID as an identifies to the output of the script. You can create and edit files using either `vi` or `nano`, whatever is more comfortable to you:
-
-> **_NOTE:_**  Nano is the easier of the two, so if you are unfamiliar, we recommend using it. To save the file in Nano use `ctrl+X`, `Y`, `Enter`.
+First, we have to save our python code into a file. For this create a file with the .py ending and add the contents of step 3-7 in the interactive job. To make sure the output of our script is uniquie we will add the unique JobID as an identifies to the output of the script. You can create and edit files using either `vi` or `nano`, whatever is more comfortable to you. Nano is the easier of the two, so if you are unfamiliar, we recommend using it. To exit and save in Nano do `ctrl+X` > `Y` > `Enter`.
 
 ```
 [<yourUsername>@headnode01 ~]$ nano myPythonCode.py
